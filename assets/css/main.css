@@ -814,6 +814,7 @@ a {
 	margin: 0px 5px -2px 0px;
 	cursor: pointer;
 	user-select: none;
+	text-decoration: none;
 	transition: background-color 0.2s ease;
 }
 
