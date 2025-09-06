@@ -1,0 +1,221 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: "Geist";
+    src: url("../../assets/fonts/GeistVF.ttf");
+}
+@font-face {
+    font-family: "ISR";
+    src: url("../../assets/fonts/InstrumentSerif-Regular.otf");
+}
+@font-face {
+    font-family: "ISI";
+    src: url("../../assets/fonts/InstrumentSerif-Italic.otf");
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFF;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+#canvas.grab {
+  cursor: grab;
+}
+
+#canvas.grab:active {
+  cursor: grabbing;
+}
+
+h1 {
+	font-family: 'Geist';
+	font-weight: 1000;
+	font-size: 700%;
+  line-height: 5%;
+  letter-spacing: -0.05rem;
+}
+
+h2 {
+	font-family: 'Geist';
+	font-weight: 300;
+  font-size: clamp(0.7rem, 5vw, 2rem);
+}
+
+h3 {
+	font-family: 'Geist';
+	font-weight: 1000;
+	font-size: 100%;
+  line-height: 500%;
+}
+
+p {
+	font-family: 'Geist';
+  font-size: 95%;
+	line-height: 145%;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+#title {
+	font-family: 'Geist';
+	font-weight: 1000;
+  font-size: clamp(2rem, 10vw, 7rem);
+  transition: font-size 1s ease, font-weight 1s ease;
+}
+
+#title.headpiece {
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.info {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  padding: 0px 150px;
+}
+
+.info.hide {
+  opacity: 0;
+}
+
+
+.glassbox {
+	font-family: 'Geist';
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 60px;
+  text-align: center;
+  align-content: center;
+  height: 30px;
+  width: 130px;
+
+  background: rgba(210, 205, 198, 0.3);  /* semi-transparent white */
+  backdrop-filter: blur(20px);          /* glass blur */
+  -webkit-backdrop-filter: blur(10px);  /* Safari support */
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+  transition:
+    background 0.5s ease, 
+    backdrop-filter 0.5s ease, 
+    border-radius 0.5s ease,
+    -webkit-backdrop-filter 0.5s ease,
+    top 0.2s ease,
+    height 1s ease,
+    width 1s ease;
+
+  user-select: none;
+  cursor: pointer;
+}
+
+.glassbox.coverall {
+  background: rgba(255, 255, 255, 0.01);  /* semi-transparent white */
+  backdrop-filter: blur(40px);          /* glass blur */
+  border-radius: 100px;
+  top: -10px;
+  height: calc(100vh + 50px);
+  width: calc(100vw + 200px);
+  cursor: default;
+  pointer-events: none;
+}
+
+.glassbox.opaque {
+  background: rgba(255, 255, 255, 1);
+  transition: background 5s ease;
+}
+
+#exit {
+  background: rgba(255, 255, 255, 0.01);  /* semi-transparent white */
+  backdrop-filter: blur(40px);          /* glass blur */
+  top: 15px;
+  left: -50px;
+  height: 40px;
+  width: 40px;
+  padding: 0px 0px;
+  transition: left 0.5s ease-out;
+  user-select: none;
+  cursor: pointer;
+  transition: scale 0.5s
+}
+
+#question {
+  background: rgba(255, 255, 255, 0.01);  /* semi-transparent white */
+  backdrop-filter: blur(40px);          /* glass blur */
+  top: 15px;
+  left: calc(100vw + 50px);
+  height: 40px;
+  width: 40px;
+  padding: 0px 0px;
+  transition: left 0.5s ease-out;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: scale 0.5s
+}
+
+#question-box {
+  display: flex;
+  transform: translateX(0%);
+  justify-self: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: right;
+  background: rgba(255, 255, 255, 0.2);  /* semi-transparent white */
+  backdrop-filter: blur(50px);          /* glass blur */
+  top: 100px;
+  right: -750px;
+  height: fit-content;
+  width: 570px;
+  padding: 30px 30px;
+  transition: left 0.2s ease-out;
+  max-height: calc(100vh - 181px + 1px);
+  max-width: calc(100vw - 181px + 1px);
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  transition: right 0s;
+  user-select: text;
+}
+
+#question-box.open {
+  right: 40px;
+  cursor: default;
+  transition: right 0.5s ease-out;
+}
+
+.smalltitle {
+	font-weight: 900;
+	font-size: 20px;
+	line-height: 50%;
+}
+
+.smallbody {
+  margin-top: 0px;
+  text-indent: 1em;
+  cursor: text;
+}
+
+.smallbutton {
+  font-weight: 400;
+  line-height: 0%;
+  cursor: pointer;
+  user-select: none;
+}
