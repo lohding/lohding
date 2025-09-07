@@ -373,6 +373,7 @@ a {
 	justify-content: middle;
 	transform: translateY(-60px);
 	transition: transform 0.3s ease-out;
+	user-select: none;
 }
 
 .menu {
